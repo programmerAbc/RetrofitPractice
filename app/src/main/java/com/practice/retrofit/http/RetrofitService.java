@@ -120,7 +120,9 @@ public interface RetrofitService {
     Call<ResponseBody> commentAdd(@Body Object o);
 
     @GET(ZWURLConfig.comment)
-    Call<ResponseBody> commentDatas(@Query("serverCode") String serverCode, @Query("pageSize") String pageSize, @Query("page") String page);
+    Call<ResponseBody> commentDatas(@Query("serverCode") String serverCode,
+                                    @Query("pageSize") String pageSize,
+                                    @Query("page") String page);
 
     @POST(ZWURLConfig.commentRemove)
     Call<ResponseBody> commentREmote(@Body List<RequestCommentRemove> list);
