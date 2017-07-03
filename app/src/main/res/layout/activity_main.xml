@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.practice.retrofit.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/userLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="userLogin" />
+
+        <Button
+            android:id="@+id/watchDatas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watchDatas" />
+
+        <Button
+            android:id="@+id/learnDatas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="learnDatas" />
+
+        <Button
+            android:id="@+id/watchDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watchDetail" />
+
+        <Button
+            android:id="@+id/studyDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="studyDetail" />
+
+        <Button
+            android:id="@+id/watchSpecialDatas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watchSpecialDatas" />
+
+        <Button
+            android:id="@+id/watchSelectionDanceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watchSelectionDanceType" />
+
+        <Button
+            android:id="@+id/watchCounts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watchCounts" />
+
+        <Button
+            android:id="@+id/TestWebPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WebPage" />
+    </LinearLayout>
+</ScrollView>
