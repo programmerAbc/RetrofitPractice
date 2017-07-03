@@ -1,7 +1,16 @@
 package com.practice.retrofit.http;
 
+import com.practice.retrofit.model.request.RequestAreaChange;
+import com.practice.retrofit.model.request.RequestBirthdayChange;
 import com.practice.retrofit.model.request.RequestBlackListAdd;
 import com.practice.retrofit.model.request.RequestBlackListDelete;
+import com.practice.retrofit.model.request.RequestChangeHeadImage;
+import com.practice.retrofit.model.request.RequestCommentRemove;
+import com.practice.retrofit.model.request.RequestDanceType;
+import com.practice.retrofit.model.request.RequestLogin;
+import com.practice.retrofit.model.request.RequestSexChange;
+import com.practice.retrofit.model.request.RequestUserNameChange;
+import com.practice.retrofit.model.request.RequestWatchDelete;
 
 import java.util.List;
 
@@ -63,7 +72,7 @@ public interface RetrofitService {
     Call<ResponseBody> watchCounts();
 
     @POST(ZWURLConfig.watchDelete)
-    Call<ResponseBody> watchDelete(@Body Object o);
+    Call<ResponseBody> watchDelete(@Body RequestWatchDelete request);
 
     @POST(ZWURLConfig.watchAdd)
     Call<ResponseBody> watchAdd(@Body Object o);
@@ -72,7 +81,7 @@ public interface RetrofitService {
     Call<ResponseBody> webPage(@Url String url);
 
     @POST(ZWURLConfig.userLogin)
-    Call<ResponseBody> userLogin(@Body Object o);
+    Call<ResponseBody> userLogin(@Body RequestLogin request);
 
     @GET(ZWURLConfig.region)
     Call<ResponseBody> areaList(@Query("requestJson") String requestRegionJson);
@@ -86,5 +95,40 @@ public interface RetrofitService {
     @GET(ZWURLConfig.ads)
     Call<ResponseBody> broadAds(@Query("typeId") String typeId);
 
+    @POST(ZWURLConfig.birthday)
+    Call<ResponseBody> changeBirthday(@Body RequestBirthdayChange request);
+
+    @POST(ZWURLConfig.address)
+    Call<ResponseBody> changeCity(@Body RequestAreaChange request);
+
+    @POST(ZWURLConfig.danceType)
+    Call<ResponseBody> changeDanceType(@Body List<RequestDanceType> danceTypeList);
+
+    @POST(ZWURLConfig.avatar)
+    Call<ResponseBody> changeheadImage(@Body RequestChangeHeadImage request);
+
+    @POST(ZWURLConfig.sex)
+    Call<ResponseBody> changeSex(@Body RequestSexChange request);
+
+    @POST(ZWURLConfig.userName)
+    Call<ResponseBody> changeUserName(@Body RequestUserNameChange request);
+
+    @GET(ZWURLConfig.androidVersion)
+    Call<ResponseBody> checkVersion();
+
+    @POST(ZWURLConfig.commentAdd)
+    Call<ResponseBody> commentAdd(@Body Object o);
+
+    @GET(ZWURLConfig.comment)
+    Call<ResponseBody> commentDatas(@Query("serverCode") String serverCode, @Query("pageSize") String pageSize, @Query("page") String page);
+
+    @POST(ZWURLConfig.commentRemove)
+    Call<ResponseBody> commentREmote(@Body List<RequestCommentRemove> list);
+
+    @GET(ZWURLConfig.category)
+    Call<ResponseBody> danceTypeList(@Query("type") String type);//现在type的值固定为danceType
+
+    @POST(ZWURLConfig.favouriteRemove)
+    Call<ResponseBody> favouriteDelete(@Body Object o);
 
 }
