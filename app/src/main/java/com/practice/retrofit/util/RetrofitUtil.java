@@ -31,8 +31,8 @@ public class RetrofitUtil {
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-            RetrofitService retrofitService = retrofit.create(RetrofitService.class);
-            map.put(timeoutS, new Pair<Retrofit, RetrofitService>(retrofit, retrofitService));
+            service = retrofit.create(RetrofitService.class);
+            map.put(timeoutS, new Pair<Retrofit, RetrofitService>(retrofit, service));
         }
         return service;
     }
