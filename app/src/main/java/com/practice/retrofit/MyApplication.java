@@ -20,7 +20,6 @@ public class MyApplication extends Application {
         super.onCreate();
         contextWeakReference = new WeakReference<Context>(getApplicationContext());
         PrefUtil.init(getApplicationContext());
-        HttpCacheWrapper.init(getApplicationContext());
     }
 
     public static Context getContext() {

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.practice.retrofit.cache.HttpCache;
 import com.practice.retrofit.http.HttpCacheWrapper;
 import com.practice.retrofit.http.RetrofitService;
 import com.practice.retrofit.model.request.RequestLogin;
@@ -61,7 +62,12 @@ public class MainActivity extends AppCompatActivity implements Callback<Response
         switch (view.getId()) {
             case R.id.watchDatas:
                 Call<ResponseBody> call = rs.watchDatas("Hot", "15", "1", "", "", "", "", "", "", "", "");
-                HttpCacheWrapper.enqueueWithCache(call, this, true, true, true);
+                HttpCacheWrapper.with(this)
+                        .enableBackRequest(true)
+                        .enableCacheResult(true)
+                        .enableFromCache(true)
+                        .call(call)
+                        .enqueue(this);
                 break;
             case R.id.learnDatas:
                 RetrofitUtil.getService(3).learnDatas("Hot", "15", "1", "", "", "", "", "", "", "", "").enqueue(this);
