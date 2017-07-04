@@ -8,11 +8,6 @@ public class RequestLogin {
     private String account;
     private String password;
 
-    public RequestLogin(String account, String password) {
-        this.account = account;
-        this.password = password;
-    }
-
     public String getAccount() {
         return account;
     }

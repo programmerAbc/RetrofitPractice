@@ -4,15 +4,27 @@ import com.practice.retrofit.model.request.RequestAreaChange;
 import com.practice.retrofit.model.request.RequestBirthdayChange;
 import com.practice.retrofit.model.request.RequestBlackListAdd;
 import com.practice.retrofit.model.request.RequestBlackListDelete;
+import com.practice.retrofit.model.request.RequestCancelOrder;
 import com.practice.retrofit.model.request.RequestChangeHeadImage;
 import com.practice.retrofit.model.request.RequestCommentRemove;
 import com.practice.retrofit.model.request.RequestDanceType;
+import com.practice.retrofit.model.request.RequestFollow;
+import com.practice.retrofit.model.request.RequestFollowDelete;
+import com.practice.retrofit.model.request.RequestLbsUpdate;
 import com.practice.retrofit.model.request.RequestLogin;
+import com.practice.retrofit.model.request.RequestPay;
+import com.practice.retrofit.model.request.RequestQiniuToken;
+import com.practice.retrofit.model.request.RequestReigster;
+import com.practice.retrofit.model.request.RequestResetPassword;
 import com.practice.retrofit.model.request.RequestSexChange;
+import com.practice.retrofit.model.request.RequestUserBindByOauth;
 import com.practice.retrofit.model.request.RequestUserNameChange;
+import com.practice.retrofit.model.request.RequestVerify;
+import com.practice.retrofit.model.request.RequestVerifyCode;
 import com.practice.retrofit.model.request.RequestWatchDelete;
 
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -27,6 +39,7 @@ import retrofit2.http.Url;
  */
 
 public interface RetrofitService {
+    //------------------GET PART----------------------
     @GET(ZWURLConfig.watch)
     Call<ResponseBody> watchDatas(@Query("type") String type,
                                   @Query("pageSize") String pageSize,
@@ -71,20 +84,101 @@ public interface RetrofitService {
     @GET(ZWURLConfig.worksCount)
     Call<ResponseBody> watchCounts();
 
-    @POST(ZWURLConfig.watchDelete)
-    Call<ResponseBody> watchDelete(@Body RequestWatchDelete request);
-
-    @POST(ZWURLConfig.watchAdd)
-    Call<ResponseBody> watchAdd(@Body Object o);
-
     @GET
     Call<ResponseBody> webPage(@Url String url);
 
-    @POST(ZWURLConfig.userLogin)
-    Call<ResponseBody> userLogin(@Body RequestLogin request);
-
     @GET(ZWURLConfig.region)
     Call<ResponseBody> areaList(@Query("requestJson") String requestRegionJson);
+
+    @GET(ZWURLConfig.ads)
+    Call<ResponseBody> broadAds(@Query("typeId") String typeId);
+
+    @GET(ZWURLConfig.androidVersion)
+    Call<ResponseBody> checkVersion();
+
+    @GET(ZWURLConfig.comment)
+    Call<ResponseBody> commentDatas(@Query("serverCode") String serverCode,
+                                    @Query("pageSize") String pageSize,
+                                    @Query("page") String page);
+
+    /**
+     * @param type 现在值固定为danceType
+     */
+    @GET(ZWURLConfig.category)
+    Call<ResponseBody> danceTypeList(@Query("type") String type);
+
+    @GET(ZWURLConfig.favourite)
+    Call<ResponseBody> favouriteIndex();
+
+    /**
+     *
+     * @param field 如果是根据userId获取用户信息的话，就传入userId值，
+     *              如果是根据accId来获取用户信息的话就传入accId值
+     * @param value 具体的userId或accId
+     * @return
+     */
+    @GET(ZWURLConfig.user)
+    Call<ResponseBody> getUserInfo(@Query("filed") String field, @Query("value") String value);
+
+    @GET(ZWURLConfig.learnScreening)
+    Call<ResponseBody> learnSelectionDanceType();
+
+    @GET(ZWURLConfig.oldUser)
+    Call<ResponseBody> oldUser(@Query("account") String account, @Query("verify") String verify);
+
+    @GET(ZWURLConfig.orderDetail)
+    Call<ResponseBody> orderDetail(@Query("id") String id);
+
+    @GET(ZWURLConfig.order)
+    Call<ResponseBody> orderList(@Query("type") String type,
+                                 @Query("pageSize") String pageSize,
+                                 @Query("page") String page);
+
+    @GET(ZWURLConfig.relateList)
+    Call<ResponseBody> relationUserList(@Query("model") String model,
+                                        @Query("userId") String userId,
+                                        @Query("page") String page,
+                                        @Query("pageSize") String pageSize);
+
+    /**
+     * @param keyword
+     * @param order    排序(0=>综合 1=>时间 2=>热门)
+     * @param page
+     * @param pageSize
+     * @param isPhone  值固定为1
+     */
+    @GET(ZWURLConfig.search)
+    Call<ResponseBody> search(@Query("keyword") String keyword,
+                              @Query("order") String order,
+                              @Query("page") String page,
+                              @Query("pagesize") String pageSize,
+                              @Query("isPhone") String isPhone);
+
+    @GET(ZWURLConfig.startSync)
+    Call<ResponseBody> startIndex();
+
+    @GET(ZWURLConfig.learnOther)
+    Call<ResponseBody> learnOtherTopicList(@Query("userId") String userId,
+                                           @Query("page") String page,
+                                           @Query("pageSize") String pageSize);
+
+    @GET(ZWURLConfig.mywork)
+    Call<ResponseBody> myworkTopicList(@Query("userId") String userId,
+                                       @Query("page") String page,
+                                       @Query("pageSize") String pageSize);
+
+
+
+    @GET(ZWURLConfig.watchRelatedVideoList)
+    Call<ResponseBody> videoAboutDatas(@Query("serverCode") String serverCode,
+                                       @Query("top") String top);
+
+    //------------------------------POST PART----------------------------------
+    @POST(ZWURLConfig.userLogin)
+    Call<ResponseBody> login(@Body RequestLogin request);
+
+    @POST(ZWURLConfig.commentAdd)
+    Call<ResponseBody> commentAdd(@Body Object o);
 
     @POST(ZWURLConfig.blacklistAdd)
     Call<ResponseBody> blackListAdd(@Body List<RequestBlackListAdd> list);
@@ -92,8 +186,81 @@ public interface RetrofitService {
     @POST(ZWURLConfig.blacklistRemove)
     Call<ResponseBody> blackListDelete(@Body List<RequestBlackListDelete> list);
 
-    @GET(ZWURLConfig.ads)
-    Call<ResponseBody> broadAds(@Query("typeId") String typeId);
+    @POST(ZWURLConfig.watchDelete)
+    Call<ResponseBody> watchDelete(@Body RequestWatchDelete request);
+
+    @POST(ZWURLConfig.watchAdd)
+    Call<ResponseBody> watchAdd(@Body Object o);
+    @POST(ZWURLConfig.verifyCode)
+    Call<ResponseBody> verifyCode(@Body RequestVerifyCode request);
+
+    @POST(ZWURLConfig.verify)
+    Call<ResponseBody> verify(@Body RequestVerify request);
+    @POST(ZWURLConfig.reportButtons)
+    Call<ResponseBody> reportButton(@Body Object o);
+
+    @POST(ZWURLConfig.reportErrors)
+    Call<ResponseBody> reportErrors(@Body Object o);
+
+    @POST(ZWURLConfig.reportMetas)
+    Call<ResponseBody> reportPage(@Body Object o);
+
+    @POST(ZWURLConfig.passwordForgot)
+    Call<ResponseBody> resetPassword(@Body RequestResetPassword request);
+    @POST(ZWURLConfig.pay)
+    Call<ResponseBody> pay(@Body RequestPay request);
+
+    @POST(ZWURLConfig.qiniuToken)
+    Call<ResponseBody> qiniuToken(@Body List<RequestQiniuToken> list);
+
+
+    @POST(ZWURLConfig.qiniuTokenUpdate)
+    Call<ResponseBody> qiniuTokenUpdate(@Body List<RequestQiniuToken> list);
+
+    @POST(ZWURLConfig.register)
+    Call<ResponseBody> register(@Body RequestReigster request);
+
+    @POST(ZWURLConfig.orderCancel)
+    Call<ResponseBody> orderCancel(@Body List<RequestCancelOrder> list);
+
+    @POST(ZWURLConfig.likeRemove)
+    Call<ResponseBody> likeDelete(@Body Object o);
+
+    @POST(ZWURLConfig.likeAdd)
+    Call<ResponseBody> likeInsert(@Body Object o);
+
+    @POST(ZWURLConfig.likeListUserId)
+    Call<ResponseBody> likeUserList(@Body Object o);
+
+    @POST(ZWURLConfig.loginByOpenId)
+    Call<ResponseBody> loginByOpenId(@Body RequestUserBindByOauth request);
+
+    @POST(ZWURLConfig.userBindByOauth)
+    Call<ResponseBody> loginOauth(@Body RequestUserBindByOauth request);
+
+    @POST(ZWURLConfig.logout)
+    Call<ResponseBody> logout();
+
+    @POST(ZWURLConfig.startApp)
+    Call<ResponseBody> launcher(@Body Map<String, String> map);
+
+    @POST(ZWURLConfig.lbs)
+    Call<ResponseBody> lbsUpdate(@Body RequestLbsUpdate request);
+
+    @POST(ZWURLConfig.favouriteAdd)
+    Call<ResponseBody> favouriteInsert(Object o);
+
+    @POST(ZWURLConfig.followRemove)
+    Call<ResponseBody> followDelete(@Body List<RequestFollowDelete> list);
+
+    @POST(ZWURLConfig.favouriteRemove)
+    Call<ResponseBody> favouriteDelete(@Body Object o);
+
+    @POST(ZWURLConfig.follow)
+    Call<ResponseBody> follow(@Body List<RequestFollow> list);
+
+    @POST(ZWURLConfig.commentRemove)
+    Call<ResponseBody> commentRemove(@Body List<RequestCommentRemove> list);
 
     @POST(ZWURLConfig.birthday)
     Call<ResponseBody> changeBirthday(@Body RequestBirthdayChange request);
@@ -112,25 +279,4 @@ public interface RetrofitService {
 
     @POST(ZWURLConfig.userName)
     Call<ResponseBody> changeUserName(@Body RequestUserNameChange request);
-
-    @GET(ZWURLConfig.androidVersion)
-    Call<ResponseBody> checkVersion();
-
-    @POST(ZWURLConfig.commentAdd)
-    Call<ResponseBody> commentAdd(@Body Object o);
-
-    @GET(ZWURLConfig.comment)
-    Call<ResponseBody> commentDatas(@Query("serverCode") String serverCode,
-                                    @Query("pageSize") String pageSize,
-                                    @Query("page") String page);
-
-    @POST(ZWURLConfig.commentRemove)
-    Call<ResponseBody> commentREmote(@Body List<RequestCommentRemove> list);
-
-    @GET(ZWURLConfig.category)
-    Call<ResponseBody> danceTypeList(@Query("type") String type);//现在type的值固定为danceType
-
-    @POST(ZWURLConfig.favouriteRemove)
-    Call<ResponseBody> favouriteDelete(@Body Object o);
-
 }

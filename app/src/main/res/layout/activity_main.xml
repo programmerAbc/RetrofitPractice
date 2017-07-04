@@ -13,12 +13,6 @@
 
 
         <Button
-            android:id="@+id/userLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="userLogin" />
-
-        <Button
             android:id="@+id/watchDatas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,5 +59,323 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WebPage" />
+
+        <Button
+            android:id="@+id/arealist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="areaList" />
+
+        <Button
+            android:id="@+id/broadAds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="broadAds" />
+
+        <Button
+            android:id="@+id/checkVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="checkVersion" />
+
+        <Button
+            android:id="@+id/commentDatas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="commentDatas" />
+
+        <Button
+            android:id="@+id/danceTypeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="danceTypeList" />
+
+        <Button
+            android:id="@+id/favouriteIndex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="favouriteIndex" />
+
+        <Button
+            android:id="@+id/getUserInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="getUserInfo" />
+
+        <Button
+            android:id="@+id/learnSelectionDanceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="learnSelectionDanceType" />
+
+        <Button
+            android:id="@+id/oldUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="oldUser" />
+
+        <Button
+            android:id="@+id/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="orderDetail" />
+
+        <Button
+            android:id="@+id/orderList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="orderList" />
+
+        <Button
+            android:id="@+id/relationUserList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="relationUserList" />
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="search" />
+
+        <Button
+            android:id="@+id/startIndex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="startIndex" />
+
+        <Button
+            android:id="@+id/learnOtherTopicList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="learnOtherTopicList" />
+
+        <Button
+            android:id="@+id/myworkTopicList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="myworkTopicList" />
+
+        <Button
+            android:id="@+id/videoAboutDatas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="videoAboutDatas" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="login" />
+
+        <Button
+            android:id="@+id/commentAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="commentAdd" />
+
+        <Button
+            android:id="@+id/blackListAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="blackListAdd" />
+
+        <Button
+            android:id="@+id/blackListDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="blackListDelete" />
+
+        <Button
+            android:id="@+id/watchDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watchDelete" />
+
+        <Button
+            android:id="@+id/watchAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watchAdd" />
+
+        <Button
+            android:id="@+id/verifyCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="verifyCode" />
+
+        <Button
+            android:id="@+id/verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="verify" />
+
+        <Button
+            android:id="@+id/reportButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="reportButton" />
+
+        <Button
+            android:id="@+id/reportErrors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="reportErrors" />
+
+        <Button
+            android:id="@+id/reportPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="reportPage" />
+
+        <Button
+            android:id="@+id/resetPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="resetPassword" />
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pay" />
+
+        <Button
+            android:id="@+id/qiniuToken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="qiniuToken" />
+
+        <Button
+            android:id="@+id/qiniuTokenUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="qiniuTokenUpdate" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="register" />
+
+        <Button
+            android:id="@+id/orderCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="orderCancel" />
+
+        <Button
+            android:id="@+id/likeDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="likeDelete" />
+
+        <Button
+            android:id="@+id/likeInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="likeInsert" />
+
+        <Button
+            android:id="@+id/likeUserList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="likeUserList" />
+
+        <Button
+            android:id="@+id/loginByOpenId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="loginByOpenId" />
+
+        <Button
+            android:id="@+id/loginOauth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="loginOauth" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="logout" />
+
+        <Button
+            android:id="@+id/launcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="launcher" />
+
+        <Button
+            android:id="@+id/lbsUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lbsUpdate" />
+
+        <Button
+            android:id="@+id/favouriteInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="favouriteInsert" />
+
+        <Button
+            android:id="@+id/followDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="followDelete" />
+
+        <Button
+            android:id="@+id/favouriteDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="favouriteDelete" />
+
+        <Button
+            android:id="@+id/follow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="follow" />
+
+        <Button
+            android:id="@+id/commentRemove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="commentRemove" />
+
+        <Button
+            android:id="@+id/changeBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="changeBirthday" />
+
+        <Button
+            android:id="@+id/changeCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="changeCity" />
+
+        <Button
+            android:id="@+id/changeDanceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="changeDanceType" />
+
+        <Button
+            android:id="@+id/changeheadImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="changeheadImage" />
+
+        <Button
+            android:id="@+id/changeSex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="changeSex" />
+
+        <Button
+            android:id="@+id/changeUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="changeUserName" />
     </LinearLayout>
 </ScrollView>

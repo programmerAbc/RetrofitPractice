@@ -9,6 +9,7 @@ import android.util.Log;
 import com.practice.retrofit.MyApplication;
 import com.practice.retrofit.util.DeviceUtils;
 import com.practice.retrofit.util.MD5Utils;
+import com.practice.retrofit.util.PrefUtil;
 
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -69,28 +70,28 @@ public class AiyigeHeaderInterceptor implements Interceptor {
             Log.e(TAG, "intercept:" + Log.getStackTraceString(e));
         }
         String signTimestampValue = String.valueOf(System.currentTimeMillis() / 1000);
-        String signSignatureValue = signAccesstoken + "=" + ""
+        String signSignatureValue = signAccesstoken + "=" + PrefUtil.getSessionAccessToken()
                 + "&" + signDevice + "=" + signDeviceValue
                 + "&" + signDeviceCode + "=" + signDeviceCodeValue
                 + "&" + signDeviceType + "=" + signDeviceTypeValue
                 + "&" + signLanguage + "=" + signLanguageValue
                 + "&" + signOs + "=" + signOsValue
                 + "&" + signOsVersion + "=" + Build.VERSION.RELEASE
-                + "&" + signSession + "=" + ""
+                + "&" + signSession + "=" + PrefUtil.getSession()
                 + "&" + signTimestamp + "=" + signTimestampValue
                 + "&" + signVersion + "=" + signVersionValue
                 + "&" + secretKey;
         signSignatureValue = MD5Utils.getMD5String(signSignatureValue);
 
         Request request = chain.request().newBuilder()
-                .addHeader(signAccesstoken, "")
+                .addHeader(signAccesstoken, PrefUtil.getSessionAccessToken())
                 .addHeader(signDevice, signDeviceValue)
                 .addHeader(signDeviceCode, signDeviceCodeValue)
                 .addHeader(signDeviceType, signDeviceTypeValue)
                 .addHeader(signLanguage, signLanguageValue)
                 .addHeader(signOs, signOsValue)
                 .addHeader(signOsVersion, Build.VERSION.RELEASE)
-                .addHeader(signSession, "")
+                .addHeader(signSession, PrefUtil.getSession())
                 .addHeader(signTimestamp, signTimestampValue)
                 .addHeader(signVersion, signVersionValue)
                 .addHeader(signSignature, signSignatureValue)
