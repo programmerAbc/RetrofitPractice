@@ -21,10 +21,8 @@ public class PermissionUtil {
 
     public static boolean requestPermission(Activity activity, String[] permissions) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int result = PackageManager.PERMISSION_DENIED;
             for (String permission : permissions) {
-                result = ContextCompat.checkSelfPermission(activity, permission);
-                if (result == PackageManager.PERMISSION_DENIED) {
+                if (ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_DENIED) {
                     ActivityCompat.requestPermissions(activity, permissions, REUQEST_PERMISSION_CODE);
                     return false;
                 }

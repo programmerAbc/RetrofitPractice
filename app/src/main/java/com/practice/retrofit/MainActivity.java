@@ -7,10 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.practice.retrofit.http.HttpCacheLayer;
+import com.practice.retrofit.http.HttpCacheWrapper;
 import com.practice.retrofit.http.RetrofitService;
 import com.practice.retrofit.model.request.RequestLogin;
-import com.practice.retrofit.model.request.RequestResetPassword;
 import com.practice.retrofit.model.resp.RespLogin;
 import com.practice.retrofit.util.GsonUtil;
 import com.practice.retrofit.util.PermissionUtil;
@@ -62,10 +61,10 @@ public class MainActivity extends AppCompatActivity implements Callback<Response
         switch (view.getId()) {
             case R.id.watchDatas:
                 Call<ResponseBody> call = rs.watchDatas("Hot", "15", "1", "", "", "", "", "", "", "", "");
-                HttpCacheLayer.enqueueWithCache(call, this, true, true, true);
+                HttpCacheWrapper.enqueueWithCache(call, this, true, true, true);
                 break;
             case R.id.learnDatas:
-                RetrofitUtil.getService(1).learnDatas("Hot", "15", "1", "", "", "", "", "", "", "", "").enqueue(this);
+                RetrofitUtil.getService(3).learnDatas("Hot", "15", "1", "", "", "", "", "", "", "", "").enqueue(this);
                 break;
             case R.id.watchDetail:
                 rs.watchDetail("0", "1107564").enqueue(this);

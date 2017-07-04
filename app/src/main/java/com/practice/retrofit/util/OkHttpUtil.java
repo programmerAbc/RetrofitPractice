@@ -1,10 +1,8 @@
 package com.practice.retrofit.util;
 
-import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
-import com.practice.retrofit.BuildConfig;
 import com.practice.retrofit.MyApplication;
 import com.practice.retrofit.http.AiyigeCacheInterceptor;
 import com.practice.retrofit.http.AiyigeHeaderInterceptor;

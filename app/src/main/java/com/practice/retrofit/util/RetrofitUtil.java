@@ -2,6 +2,7 @@ package com.practice.retrofit.util;
 
 import android.util.Pair;
 
+import com.practice.retrofit.R;
 import com.practice.retrofit.http.RetrofitService;
 import com.practice.retrofit.http.ZWURLConfig;
 
@@ -22,8 +23,8 @@ public class RetrofitUtil {
     public static int DEFAULT_TIMEOUT_S = 10;
 
     public static RetrofitService getService(int timeoutS) {
-        RetrofitService service = map.get(timeoutS).second;
-        if (service == null) {
+        Pair<Retrofit, RetrofitService> pair = map.get(timeoutS);
+        if (pair == null) {
             OkHttpClient client = OkHttpUtil.createOkHttpClient(timeoutS);
             if (client == null) return null;
             Retrofit retrofit = new Retrofit.Builder()
@@ -31,10 +32,11 @@ public class RetrofitUtil {
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-            service = retrofit.create(RetrofitService.class);
-            map.put(timeoutS, new Pair<Retrofit, RetrofitService>(retrofit, service));
+            RetrofitService service = retrofit.create(RetrofitService.class);
+            pair = new Pair<>(retrofit, service);
+            map.put(timeoutS, pair);
         }
-        return service;
+        return pair.second;
     }
 
     public static RetrofitService getService() {

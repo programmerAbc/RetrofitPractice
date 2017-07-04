@@ -3,7 +3,7 @@ package com.practice.retrofit;
 import android.app.Application;
 import android.content.Context;
 
-import com.practice.retrofit.http.HttpCacheLayer;
+import com.practice.retrofit.http.HttpCacheWrapper;
 import com.practice.retrofit.util.PrefUtil;
 
 import java.lang.ref.WeakReference;
@@ -20,7 +20,7 @@ public class MyApplication extends Application {
         super.onCreate();
         contextWeakReference = new WeakReference<Context>(getApplicationContext());
         PrefUtil.init(getApplicationContext());
-        HttpCacheLayer.init(getApplicationContext());
+        HttpCacheWrapper.init(getApplicationContext());
     }
 
     public static Context getContext() {

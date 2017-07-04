@@ -18,12 +18,12 @@ import retrofit2.Response;
  * Created by xiachao on 2017/7/4.
  */
 
-public class HttpCacheLayer {
-    public static final String TAG = HttpCacheLayer.class.getSimpleName();
+public class HttpCacheWrapper {
+    public static final String TAG = HttpCacheWrapper.class.getSimpleName();
     private static Context context;
 
     public static void init(Context context) {
-        HttpCacheLayer.context = context;
+        HttpCacheWrapper.context = context;
     }
 
     public static void enqueueWithCache(final Call<ResponseBody> call, final Callback<ResponseBody> callBack, final boolean backRequest, final boolean cacheResult, final boolean fromCache) {
