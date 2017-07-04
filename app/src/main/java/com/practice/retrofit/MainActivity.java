@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements Callback<Response
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        PermissionUtil.requestPermission(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE});
+        PermissionUtil.requestPermission(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE});
         rs = RetrofitUtil.getService();
     }
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements Callback<Response
                 HttpCacheLayer.enqueueWithCache(call, this, true, true, true);
                 break;
             case R.id.learnDatas:
-                rs.learnDatas("Hot", "15", "1", "", "", "", "", "", "", "", "").enqueue(this);
+                RetrofitUtil.getService(1).learnDatas("Hot", "15", "1", "", "", "", "", "", "", "", "").enqueue(this);
                 break;
             case R.id.watchDetail:
                 rs.watchDetail("0", "1107564").enqueue(this);

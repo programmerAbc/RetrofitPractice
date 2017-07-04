@@ -1,8 +1,14 @@
 package com.practice.retrofit.util;
 
+import android.util.Pair;
+
 import com.practice.retrofit.http.RetrofitService;
 import com.practice.retrofit.http.ZWURLConfig;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -12,24 +18,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitUtil {
-    private static Retrofit retrofit = null;
-    private static RetrofitService service = null;
+    private static Map<Integer, Pair<Retrofit, RetrofitService>> map = new HashMap<>();
+    public static int DEFAULT_TIMEOUT_S = 10;
 
-    private static Retrofit getRetrofit() {
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
+    public static RetrofitService getService(int timeoutS) {
+        RetrofitService service = map.get(timeoutS).second;
+        if (service == null) {
+            OkHttpClient client = OkHttpUtil.createOkHttpClient(timeoutS);
+            if (client == null) return null;
+            Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(ZWURLConfig.isOnline ? ZWURLConfig.ONLINE_URL : ZWURLConfig.OFFLINE_URL)
-                    .client(OkHttpUtil.getOkHttpClient())
+                    .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
+            RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+            map.put(timeoutS, new Pair<Retrofit, RetrofitService>(retrofit, retrofitService));
         }
-        return retrofit;
+        return service;
     }
 
     public static RetrofitService getService() {
-        if (service == null) {
-            service = getRetrofit().create(RetrofitService.class);
-        }
-        return service;
+        return getService(DEFAULT_TIMEOUT_S);
     }
 }
